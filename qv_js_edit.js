@@ -115,7 +115,10 @@ const quickviewBtnClickHandler = (qvItemId, itemLink) => {
             isMultiple = false;
             itemUpgrades = {};
 
-            if (itemLink && itemLink.includes("/items/")) {
+            if (itemLink && itemLink.includes("current_customer")) {
+                itemUrl = itemLink;
+            }
+            else if (itemLink && itemLink.includes("/items/") && !itemLink.includes("current_customer")) {
                 itemUrl = generalItemUrl + itemLink;
             } else {
                 itemUrl = generalItemUrl + "/items/" + qvItemId;
