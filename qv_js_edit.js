@@ -558,11 +558,11 @@ const quickviewInventoryChanges = () => {
 // strengths changes
 const quickviewStrengthsChanges = () => {
     // strengths
-    if (show_strengths == "true") {
+    // if (show_strengths == "true") {
         if ($("#wrap_quickview .item_main_bottom_left .extra_icons").length == 0) {
             $("#wrap_quickview .item_main_bottom_left .icons ").after('<div class="extra_icons col-xs-12"><a class="icon pos_0 col-xs-4" target="_blank"><img src="' + extra_icons_icon1 + '" alt=""></a><a class="icon pos_1 col-xs-4" target="_blank"><img src="' + extra_icons_icon2 + '" alt=""></a><a class="icon pos_2 col-xs-4" target="_blank"><img src="' + extra_icons_icon3 + '" alt=""></a></div>')
         }
-    }
+    // }
 
     // change strengths from hybrid fields
     if (strengths_delete_content == "true") {
