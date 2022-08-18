@@ -629,7 +629,6 @@ const quickviewChangesAfterLoad = () => {
 
         // strength - fix img src if lazyloading strengths
         if (show_strengths == "true") {
-
             $("#wrap_quickview .extra_icons a").each(function () {
                 if ($(this).find("img").attr("data-original")) {
                     var link = $(this).find("img").attr("data-original");
@@ -637,14 +636,21 @@ const quickviewChangesAfterLoad = () => {
                 }
             })
         }
+
+        // upgrades pics if lazy loading
+        $("#wrap_quickview #item_upgrades .item_upgrades_with_images label").each(function () {
+            if ($(this).find("img").attr("data-original")) {
+                var link = $(this).find("img").attr("data-original");
+                $(this).find("img").attr("src", link);
+            }
+        })
+
+
         // copy item link to note_upgrades instead of buttons. (not displayed as default)
         $("#wrap_quickview .special_cart_wrapper").append("<div class='note_upgrades'></div>");
         $("#wrap_quickview .note_upgrades").click(function () {
             $("#wrap_quickview .link_wrapper a")[0].click();
         })
-
-
-
 
 
         // note for Dad item - without buy buttons 
@@ -1506,7 +1512,6 @@ const radioToCheckboxQV = () => {
                     $(this).find("input[type='radio']").attr('type', 'checkbox');
                 }
             });
-
         });
     } catch (error) {
         console.log("radio to checkbox error: " + error);
