@@ -1018,8 +1018,9 @@ const addToCartHandler = () => {
             if (imgItem == undefined) { // classic layout
                 imgItem = $('#wrap_quickview div#item_show_carousel .mainImage a img').attr('src');
             }
-            let arrOfUpgrades = $('#wrap_quickview .multipleSelects select:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields select:not(.not_for_upgrades_cart, .fake_select), #wrap_quickview .upgrades_form_fields input:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields textarea:not(.not_for_upgrades_cart), #wrap_quickview .item_upgrades_with_images .checkbox-group input, #wrap_quickview #item_upgrades label.for_upgrades_cart input[type=file]');
-            // var arrOfUpgrades = $('#wrap_quickview .multipleSelects select:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields select:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields input:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields textarea:not(.not_for_upgrades_cart), #wrap_quickview .item_upgrades_with_images .checkbox-group input, #wrap_quickview #item_upgrades label.for_upgrades_cart input[type=file]');
+
+            let arrOfUpgrades = $('#wrap_quickview .item_main_bottom .multipleSelects select:not(.not_for_upgrades_cart), #wrap_quickview .item_main_bottom .upgrades_form_fields select:not(.not_for_upgrades_cart, .fake_select), #wrap_quickview .item_main_bottom .upgrades_form_fields input:not(.not_for_upgrades_cart), #wrap_quickview .item_main_bottom .upgrades_form_fields textarea:not(.not_for_upgrades_cart), #wrap_quickview .item_main_bottom .item_upgrades_with_images .checkbox-group input, #wrap_quickview .item_main_bottom #item_upgrades label.for_upgrades_cart input[type=file]');
+            // old --- var arrOfUpgrades = $('#wrap_quickview .multipleSelects select:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields select:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields input:not(.not_for_upgrades_cart), #wrap_quickview .upgrades_form_fields textarea:not(.not_for_upgrades_cart), #wrap_quickview .item_upgrades_with_images .checkbox-group input, #wrap_quickview #item_upgrades label.for_upgrades_cart input[type=file]');
 
             arrOfUpgrades.each(function () {
                 $(this).change(function () {
