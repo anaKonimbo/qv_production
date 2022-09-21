@@ -63,7 +63,8 @@ const quickviewLayoutListItems = () => {
 
 const quickviewDynamicCarousel = () => {
     try {
-        if ($("body #bg_middle #dynamic-carousel-client").length) {
+     if ( !window.location.href.includes("secure.konimbo")) {
+          if ($("body #bg_middle #dynamic-carousel-client").length) {
             $('body #dynamic-carousel-client .swiper-slide:not(.set_quickview)').each(function () {
 
                 let listItem = $(this);
@@ -76,11 +77,10 @@ const quickviewDynamicCarousel = () => {
                     const itemId = $(this).parents('.swiper-slide').first().attr("data-item-id");
 
                     quickviewBtnClickHandler(itemId);
-
                 });
             });
-
         }
+     }
     } catch (error) {
         console.log("TCL: function quickviewDynamicCarousel -> error", error);
     }
@@ -116,8 +116,7 @@ const quickviewBtnClickHandler = (qvItemId, itemLink) => {
 
             if (itemLink && itemLink.includes("current_customer")) {
                 itemUrl = itemLink;
-            }
-            else if (itemLink && itemLink.includes("/items/") && !itemLink.includes("current_customer")) {
+            } else if (itemLink && itemLink.includes("/items/") && !itemLink.includes("current_customer")) {
                 itemUrl = generalItemUrl + itemLink;
             } else {
                 itemUrl = generalItemUrl + "/items/" + qvItemId;
@@ -540,7 +539,7 @@ const quickviewInventoryChanges = () => {
 
 
         // contactNow at start
-        $('#wrap_quickview select.inventory:not(".unshown"), #wrap_quickview select.fake_select').each(function (index, el) {
+        $('#wrap_quickview .item_main_bottom select.inventory:not(".unshown"), #wrap_quickview .item_main_bottom select.fake_select').each(function (index, el) {
             if ($(this).children(':selected').text().indexOf("חסר במלאי") > -1) {
                 $('#wrap_quickview a.commit_to_real').hide();
                 $('#wrap_quickview .contactNow').show().siblings('.buyNow').hide();
